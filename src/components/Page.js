@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { DefaultSeo } from 'next-seo';
 import Box, { Grid } from '@codeday/topo/Atom/Box';
 import Content from '@codeday/topo/Molecule/Content';
-import Text from '@codeday/topo/Atom/Text';
+import Text, { Link } from '@codeday/topo/Atom/Text';
 import Button from '@codeday/topo/Atom/Button';
 import Header, { SiteLogo, Menu } from '@codeday/topo/Organism/Header';
-import Footer from '@codeday/topo/Organism/Footer';
+import Footer, { CustomLinks } from '@codeday/topo/Organism/Footer';
+import List, { Item as ListItem } from '@codeday/topo/Atom/List';
 import Announcement from '@codeday/topo/Organism/Announcement';
 import { CodeDay } from '@codeday/topo/Atom/Logo';
 import Sidebar from './Sidebar';
@@ -14,7 +15,7 @@ import Sidebar from './Sidebar';
 const DOMAIN = 'https://blog.codeday.org';
 
 export default function Page({
-  children, title, darkHeader, slug,
+  children, title, darkHeader, slug, hero,
 }) {
   return (
     <>
@@ -39,7 +40,7 @@ export default function Page({
         <Header
           darkBackground={darkHeader}
           gradAmount={darkHeader && 'lg'}
-          underscore
+          underscore={!hero}
           position="relative"
           zIndex={1000}
         >
@@ -65,8 +66,9 @@ export default function Page({
             <Button variant="outline" href="https://virtual.codeday.org">Virtual CodeDay</Button>
           </Menu>
         </Header>
+        {hero}
         <Content mb={16}>
-          <Grid templateColumns={{ base: '1fr', md: '9fr 4fr' }} gap={16}>
+          <Grid templateColumns={{ base: '1fr', md: '9fr 4fr' }} gap={24}>
             <Box>
               {children}
             </Box>
@@ -75,7 +77,18 @@ export default function Page({
             </Box>
           </Grid>
         </Content>
-        <Footer />
+        <Footer>
+          <CustomLinks>
+            <List>
+              <ListItem>
+                <Link href="https://github.com/codeday" target="_blank">Open Source</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://codeday.to/discord" target="_blank">Community</Link>
+              </ListItem>
+            </List>
+          </CustomLinks>
+        </Footer>
       </Box>
     </>
   );
@@ -87,10 +100,12 @@ Page.propTypes = {
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
   ]).isRequired,
+  hero: PropTypes.element,
   title: PropTypes.string.isRequired,
   darkHeader: PropTypes.bool,
   slug: PropTypes.string.isRequired,
 };
 Page.defaultProps = {
   darkHeader: false,
+  hero: null,
 };
