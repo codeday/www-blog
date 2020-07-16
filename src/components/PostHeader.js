@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 import Skelly from '@codeday/topo/Atom/Skelly';
 import Text, { Heading } from '@codeday/topo/Atom/Text';
 import Box from '@codeday/topo/Atom/Box';
@@ -32,7 +31,7 @@ export default function PostHeader({ isFallback, post }) {
           <Box fontWeight="bold">
             <Text as="span" color={`${primaryCategory.display.color}.700`}>{primaryCategory?.name}</Text>
             &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-            {moment(post?.date).format('MMMM DD, YYYY')}
+            {post.date}
           </Box>
         )}
         <Heading

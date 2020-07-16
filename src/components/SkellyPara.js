@@ -6,7 +6,7 @@ export default function SkellyPara() {
   const paraCount = Math.floor(Math.random() * 4) + 3;
   return (
     <Box mb={4}>
-      {[...Array(paraCount)].map(() => <Skelly width={`${(Math.random() * 20) + 80}%`} />)}
+      {[...Array(paraCount)].map((i) => <Skelly key={i} width={`${(Math.random() * 20) + 80}%`} />)}
     </Box>
   );
 }

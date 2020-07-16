@@ -4,6 +4,7 @@ import Html from '@codeday/topo/Molecule/Html';
 import { apiFetch } from '@codeday/topo/utils';
 import Announcement from '@codeday/topo/Organism/Announcement';
 import { NextSeo } from 'next-seo'
+import moment from 'moment';
 import Page from '../components/Page';
 import SkellyPara from '../components/SkellyPara';
 import NotFoundPage from '../components/NotFoundPage';
@@ -77,6 +78,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug } }) {
   const { post } = (await apiFetch(postQuery(slug))).blog;
+  post.date = moment(post?.date).format('MMMM DD, YYYY');
+
   return {
     props: {
       post,

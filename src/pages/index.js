@@ -1,5 +1,4 @@
 import React from 'react';
-import moment from 'moment';
 import Text, { Heading, Link } from '@codeday/topo/Atom/Text';
 import Image from '@codeday/topo/Atom/Image';
 import Box, { Grid } from '@codeday/topo/Atom/Box';
@@ -21,7 +20,6 @@ export default function Home({ posts }) {
               />
               <Box>
                 <Heading as="h3" fontSize="xl">{post.title}</Heading>
-                <Text>{moment(post.date).format('MMMM DD, YYYY')}</Text>
                 <Box dangerouslySetInnerHTML={{ __html: post.excerpt }} />
               </Box>
             </Grid>

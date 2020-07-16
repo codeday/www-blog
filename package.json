@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@codeday/topo": "^2.6.0",
+    "@codeday/topo": "^2.7.0",
     "@codeday/topocons": "^1.3.0",
     "moment": "^2.27.0",
     "next": "^9.4.4",
@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@codeday/eslint-config": "^1.3.0",
+    "@next/bundle-analyzer": "^9.4.4",
     "eslint": "^7.4.0"
   }
 }

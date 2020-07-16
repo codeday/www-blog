@@ -94,7 +94,7 @@ export default function Page({
   );
 }
 Page.propTypes = {
-  children: PropTypes.oneOf([
+  children: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.string,
     PropTypes.element,
