@@ -12,17 +12,13 @@ export default function Home({ posts }) {
         {posts.map((post) => (
           <Link key={post.slug} d="block" href={`/${post.slug}`} style={{ textDecoration: 'none' }} mb={16}>
             <Grid templateColumns={{ base: "1fr", md: "1fr 4fr" }} gap={4}>
-              <Box width={{ base: 32, md: "100%" }} height={32} backgroundColor="gray.100">
-                {post.featuredImage && (
-                  <Image
-                    src={post.featuredImage?.sourceUrl}
-                    style={{ objectFit: "cover", objectPosition: "50% 50%" }}
-                    width="100%"
-                    height="100%"
-                    alt=""
-                  />
-                )}
-              </Box>
+              <Box
+                width={{ base: 32, md: "100%" }}
+                height={32}
+                backgroundColor="gray.100"
+                backgroundImage={`url(${post.featuredImage?.sourceUrl})`}
+                style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
+              />
               <Box>
                 <Heading as="h3" fontSize="xl">{post.title}</Heading>
                 <Text>{moment(post.date).format('MMMM DD, YYYY')}</Text>
@@ -51,11 +47,12 @@ const query = `{
   }
 }`;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const data = await apiFetch(query);
   return {
     props: {
       posts: data?.blog?.posts?.nodes,
-    }
+    },
+    unstable_revalidate: 30,
   }
 }

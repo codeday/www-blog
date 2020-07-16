@@ -12,7 +12,7 @@ export default function PostHeader({ isFallback, post }) {
 
   return (
     <>
-    {isFallback && (<Skelly height={{ base: "2xs", sm: "xs", md: "sm", lg: "lg" }} />)}
+    {isFallback && (<Content wide><Skelly height={{ base: "2xs", sm: "xs", md: "sm", lg: "lg" }} /></Content>)}
     {post?.featuredImage && (
       <Content wide>
         <Box
@@ -20,15 +20,10 @@ export default function PostHeader({ isFallback, post }) {
           mt={-8}
           mb={4}
           borderRadius={4}
-          style={{ overflow: 'hidden' }}
-        >
-          <Image
-            style={{ objectFit: 'cover', objectPosition: '50% 50%'}}
-            width="100%"
-            height="100%"
-            src={post.featuredImage.sourceUrl}
-          />
-        </Box>
+          backgroundColor="gray.100"
+          backgroundImage={`url(${post.featuredImage.sourceUrl})`}
+          style={{ backgroundSize: 'cover', backgroundPosition: '50% 50%' }}
+         />
       </Content>
     )}
       <Content>
