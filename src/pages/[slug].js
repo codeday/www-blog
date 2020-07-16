@@ -42,16 +42,6 @@ export default function Post({ post }) {
   );
 }
 
-const pathsQuery = `{
-  blog {
-    posts (first: 10000) {
-      nodes {
-        slug
-      }
-    }
-  }
-}`;
-
 const postQuery = (id) => `{
   blog {
     post( id: "${id.replace(/[^a-zA-Z0-9\-_]/, '')}", idType: SLUG ) {
@@ -79,11 +69,8 @@ const postQuery = (id) => `{
 }`;
 
 export async function getStaticPaths() {
-  const paths = (await apiFetch(pathsQuery)).blog.posts.nodes
-    .map((n) => ({ params: { slug: n.slug } }));
-
   return {
-    paths: paths,
+    paths: [],
     fallback: true,
   };
 }
@@ -94,5 +81,6 @@ export async function getStaticProps({ params: { slug } }) {
     props: {
       post,
     },
+    unstable_revalidate: 120,
   };
 }
