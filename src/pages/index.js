@@ -11,8 +11,8 @@ export default function Home({ posts }) {
     <Page slug="/" title="CodeDay Blog">
         {posts.map((post) => (
           <Link key={post.slug} d="block" href={`/${post.slug}`} style={{ textDecoration: 'none' }} mb={16}>
-            <Grid templateColumns="1fr 4fr" gap={4}>
-              <Box width="100%" height={32} backgroundColor="gray.100">
+            <Grid templateColumns={{ base: "1fr", md: "1fr 4fr" }} gap={4}>
+              <Box width={{ base: 32, md: "100%" }} height={32} backgroundColor="gray.100">
                 {post.featuredImage && (
                   <Image
                     src={post.featuredImage?.sourceUrl}

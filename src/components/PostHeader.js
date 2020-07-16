@@ -12,9 +12,16 @@ export default function PostHeader({ isFallback, post }) {
 
   return (
     <>
+    {isFallback && (<Skelly height={{ base: "2xs", sm: "xs", md: "sm", lg: "lg" }} />)}
     {post?.featuredImage && (
       <Content wide>
-        <Box height="xs" mt={-8} mb={4} borderRadius={4} style={{ overflow: 'hidden' }}>
+        <Box
+          height={{ base: "2xs", sm: "xs", md: "sm", lg: "lg"}}
+          mt={-8}
+          mb={4}
+          borderRadius={4}
+          style={{ overflow: 'hidden' }}
+        >
           <Image
             style={{ objectFit: 'cover', objectPosition: '50% 50%'}}
             width="100%"
@@ -25,7 +32,6 @@ export default function PostHeader({ isFallback, post }) {
       </Content>
     )}
       <Content>
-        {isFallback && (<Skelly height="xs" />)}
         {isFallback && (<Skelly width="2xs" height={8} />)}
         {primaryCategory && (
           <Box fontWeight="bold">

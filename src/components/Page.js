@@ -68,7 +68,7 @@ export default function Page({
         </Header>
         {hero}
         <Content mb={16}>
-          <Grid templateColumns={{ base: '1fr', md: '9fr 4fr' }} gap={24}>
+          <Grid templateColumns={{ base: '1fr', md: 'minmax(0, 9fr) 4fr' }} gap={24}>
             <Box>
               {children}
             </Box>
