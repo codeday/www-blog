@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@accessible/use-id@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@accessible/use-id/-/use-id-1.1.1.tgz#66f13e102f4c83fc28723318b0f92c1448769432"
+  integrity sha512-L4njMJhuprxajmCvUlmqDqZK5485WgcBtQvFcDNp7SsJ+keNn0kXP99P3KPoAUiX72k7xcb06sTbLD/ARC7PzA==
+  dependencies:
+    "@react-hook/passive-layout-effect" "^1.2.0"
+
 "@ampproject/toolbox-core@^2.4.0-alpha.1", "@ampproject/toolbox-core@^2.5.4":
   version "2.5.4"
   resolved "https://registry.yarnpkg.com/@ampproject/toolbox-core/-/toolbox-core-2.5.4.tgz#8554c5398b6d65d240085a6b0abb94f9a3276dce"
@@ -1045,11 +1052,12 @@
     eslint-plugin-react-hooks "^2.3.0"
     eslint-plugin-sonarjs "^0.5.0"
 
-"@codeday/topo@^2.7.0":
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/@codeday/topo/-/topo-2.7.0.tgz#89a26f72e00d9b2aed08a0dcd62168d975b4a1cb"
-  integrity sha512-Yum1SeDieT7X/k1rpOu3onQkNA+7aRuyP5Iyr7hfrfPotxK8EVKOb1cgmMjfxQipAYu/f+4wh/Oz6UfiopI4kg==
+"@codeday/topo@^2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@codeday/topo/-/topo-2.8.0.tgz#082965151e7233607969b6357e3106a7cc95db8f"
+  integrity sha512-9TZyGEjh9Iie0UIy4bCshfsMpFdyTraWOYyrie10DV0WBse0tEk2u/l6yZ2tPiyXNOTRJsVU2jS9WM4M+4byLA==
   dependencies:
+    "@accessible/use-id" "^1.1.1"
     "@chakra-ui/core" "^0.7.0"
     "@storybook/addon-a11y" "^5.3.18"
     "@stripe/react-stripe-js" "^1.1.2"
@@ -1244,6 +1252,11 @@
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/@reach/visually-hidden/-/visually-hidden-0.1.4.tgz#0dc4ecedf523004337214187db70a46183bd945b"
   integrity sha512-QHbzXjflSlCvDd6vJwdwx16mSB+vUCCQMiU/wK/CgVNPibtpEiIbisyxkpZc55DyDFNUIqP91rSUsNae+ogGDQ==
+
+"@react-hook/passive-layout-effect@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@react-hook/passive-layout-effect/-/passive-layout-effect-1.2.0.tgz#1232f0b08f9bfd9f87a2898a3ae50d5f7731d806"
+  integrity sha512-obGcMHoeiG/qp9djzlxwvlsAzL4a+JFaxTLvJv8GykipmS/TEkfvdcpu6orE1ZL4dAT7OpoGwHDc/LGJbkZzXQ==
 
 "@storybook/addon-a11y@^5.3.18":
   version "5.3.19"

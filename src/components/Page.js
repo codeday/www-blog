@@ -61,9 +61,9 @@ export default function Page({
             </a>
           </SiteLogo>
           <Menu d={{ base: 'none', md: 'block' }}>
-            <Button variant="outline" href="https://www.codeday.org">CodeDay</Button>
-            <Button variant="outline" href="https://labs.codeday.org">CodeDay Labs</Button>
-            <Button variant="outline" href="https://virtual.codeday.org">Virtual CodeDay</Button>
+            <Button variant="outline" href="https://www.codeday.org" rel="noopener">CodeDay</Button>
+            <Button variant="outline" href="https://labs.codeday.org" rel="noopener">CodeDay Labs</Button>
+            <Button variant="outline" href="https://virtual.codeday.org" rel="noopener">Virtual CodeDay</Button>
           </Menu>
         </Header>
         {hero}
@@ -81,10 +81,10 @@ export default function Page({
           <CustomLinks>
             <List>
               <ListItem>
-                <Link href="https://github.com/codeday" target="_blank">Open Source</Link>
+                <Link href="https://github.com/codeday" target="_blank" rel="noopener">Open Source</Link>
               </ListItem>
               <ListItem>
-                <Link href="https://codeday.to/discord" target="_blank">Community</Link>
+                <Link href="https://codeday.to/discord" target="_blank" rel="noopener">Community</Link>
               </ListItem>
             </List>
           </CustomLinks>

@@ -78,7 +78,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug } }) {
   const { post } = (await apiFetch(postQuery(slug))).blog;
-  post.date = moment(post?.date).format('MMMM DD, YYYY');
+  if (post) {
+    post.date = moment(post.date).format('MMMM DD, YYYY');
+  }
 
   return {
     props: {

@@ -29,7 +29,7 @@ export default function PostHeader({ isFallback, post }) {
         {isFallback && (<Skelly width="2xs" height={8} />)}
         {primaryCategory && (
           <Box fontWeight="bold">
-            <Text as="span" color={`${primaryCategory.display.color}.700`}>{primaryCategory?.name}</Text>
+            <Text as="span" color={`${primaryCategory.display.color}.800`}>{primaryCategory?.name}</Text>
             &nbsp;&nbsp;&middot;&nbsp;&nbsp;
             {post.date}
           </Box>

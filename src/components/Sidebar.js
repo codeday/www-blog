@@ -27,7 +27,7 @@ const programsQuery = `{
           id
         }
         logo {
-          url(transform:{width:200})
+          url(transform:{width:82})
         }
         name
         link
@@ -48,8 +48,8 @@ export default function Sidebar() {
         <Box mb={16}>
           <Heading as="h3" fontSize="lg" mb={4} color="gray.800">Our Programs</Heading>
           {data.cms.programs.items.map((item) => (
-              <Box as="a" d="inline-block" href={item.url} mb={4}>
-                <Text as="div" textDecoration="underline" bold color="blue.400">{item.name}</Text>
+              <Box as="a" d="inline-block" href={item.url} mb={4} target="_blank" rel="noopener">
+                <Text as="div" textDecoration="underline" bold color="red.600">{item.name}</Text>
                 <Text as="div" color="gray.800">{item.shortDescription}</Text>
               </Box>
           ))}
@@ -61,7 +61,7 @@ export default function Sidebar() {
           <Heading as="h3" fontSize="lg" mb={4} color="gray.800">With Worldwide Support From</Heading>
           <Grid templateColumns="1fr 1fr 1fr" alignItems="center" columnGap={4} rowGap={8} mb={16}>
             {data.cms.globalSponsors.items.map((sponsor) => (
-              <Link key={sponsor.sys.id} d="inline" href={sponsor.link} target="_blank">
+              <Link key={sponsor.sys.id} d="inline" href={sponsor.link} target="_blank" rel="noopener">
                 <Image d="inline" src={sponsor.logo.url} style={{ filter: "grayscale(100%)", opacity: 0.5 }} alt={sponsor.name} />
               </Link>
             ))}
