@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import Html from '@codeday/topo/Molecule/Html';
+import Text, { Link } from '@codeday/topo/Atom/Text';
 import { apiFetch } from '@codeday/topo/utils';
 import Announcement from '@codeday/topo/Organism/Announcement';
 import { NextSeo } from 'next-seo'
@@ -36,6 +37,12 @@ export default function Post({ post }) {
       {post ? (
         <>
           <Html>{post.content}</Html>
+          <Text mt={16} bold>
+            If you liked this post, an easy way to support our work is to follow us on{' '}
+            <Link href="https://www.linkedin.com/company/codeday-org/" color="blue.800" target="_blank">LinkedIn</Link>
+            {' '} or <Link href="https://twitter.com/codeday" target="_blank" color="blue.800">Twitter</Link>. We often
+            post volunteer and mentor opportunities.
+          </Text>
           <Announcement box mt={16} />
         </>
       ) : [...Array(Math.ceil(Math.random() * 5) + 3)].map(() => <SkellyPara />)}
@@ -55,6 +62,8 @@ const postQuery = (id) => `{
       }
       author {
         name
+        picture
+        username
       }
       categories {
         nodes {

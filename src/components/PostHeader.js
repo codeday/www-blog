@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Skelly from '@codeday/topo/Atom/Skelly';
-import Text, { Heading } from '@codeday/topo/Atom/Text';
+import Text, { Heading, Link } from '@codeday/topo/Atom/Text';
 import Box from '@codeday/topo/Atom/Box';
 import Content from '@codeday/topo/Molecule/Content';
 import Image from '@codeday/topo/Atom/Image';
@@ -43,11 +43,30 @@ export default function PostHeader({ isFallback, post }) {
         >
           { isFallback ? <><Skelly /><Skelly /></> : post.title }
         </Heading>
-        <Text font="accent" fontSize="lg" bold mb={8}>
+        <Box mb={8}>
           {isFallback ? (<Skelly width="sm" />) : (
-            <>{post?.author?.name}</>
+            <>
+              <Image
+                d="inline"
+                rounded="full"
+                src={post?.author?.picture.replace('256x256', '16')}
+                w="1em"
+                h="1em"
+                mr={1}
+                position="relative"
+                top="-2px"
+              />
+              <Link
+                font="accent"
+                fontSize="lg"
+                fontWeight="bold"
+                href={`mailto:${post?.author?.username}@codeday.org`}
+              >
+                {post?.author?.name}
+              </Link>
+            </>
           )}
-        </Text>
+        </Box>
       </Content>
     </>
   )
