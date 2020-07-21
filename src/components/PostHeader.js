@@ -43,7 +43,7 @@ export default function PostHeader({ isFallback, post }) {
         >
           { isFallback ? <><Skelly /><Skelly /></> : post.title }
         </Heading>
-        <Box mb={8}>
+        <Box mb={8} mt={4}>
           {isFallback ? (<Skelly width="sm" />) : (
             <>
               <Image
@@ -63,7 +63,7 @@ export default function PostHeader({ isFallback, post }) {
                 href={`mailto:${post?.author?.username}@codeday.org`}
               >
                 {post?.author?.name}
-              </Link>
+              </Link>, {post?.author?.title || 'Community Member'}
             </>
           )}
         </Box>

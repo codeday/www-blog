@@ -64,6 +64,7 @@ const postQuery = (id) => `{
         name
         picture
         username
+        title
       }
       categories {
         nodes {

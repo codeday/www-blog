@@ -37,12 +37,17 @@ const programsQuery = `{
 }`;
 
 export default function Sidebar() {
-  const { data } = useSwr(programsQuery, apiFetch);
+  const { data } = useSwr(programsQuery, apiFetch, { revalidateOnFocus: false, revalidateOnReconnect: false });
   const mission = useString('common.mission');
 
   return (
     <>
-      <Text textAlign="center" fontStyle="italic" color="gray.800" mb={16}>{mission}</Text>
+      <Text textAlign="center" fontStyle="italic" color="gray.800" mb={16}>
+        {mission}<br /><br />
+        Follow us on{' '}
+        <Link href="https://www.linkedin.com/company/codeday-org/" color="red.600" target="_blank">LinkedIn</Link>
+        {' '}or <Link href="https://twitter.com/codeday" target="_blank" color="red.600">Twitter</Link>
+      </Text>
 
       {data?.cms?.programs?.items && data.cms.programs.items.length > 0 && (
         <Box mb={16}>
