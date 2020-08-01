@@ -49,12 +49,13 @@ export default function PostHeader({ isFallback, post }) {
               <Image
                 d="inline"
                 rounded="full"
-                src={post?.author?.picture.replace('256x256', '16')}
+                src={post?.author?.picture.replace('256x256', 'w=16;h=16')}
                 w="1em"
                 h="1em"
                 mr={1}
                 position="relative"
                 top="-2px"
+                alt=""
               />
               <Link
                 font="accent"
