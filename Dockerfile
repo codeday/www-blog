@@ -1,4 +1,4 @@
-FROM node:13-alpine
+FROM node:14-alpine
 
 ENV NODE_ENV=production
 RUN mkdir /app
@@ -6,8 +6,7 @@ COPY package.json /app
 COPY yarn.lock /app
 WORKDIR /app
 
-RUN yarn install
-RUN yarn add --dev strip-ansi
+RUN yarn install --production --ignore-optional
 
 COPY . /app
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh

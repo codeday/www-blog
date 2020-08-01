@@ -51,6 +51,6 @@ export async function getStaticProps() {
     props: {
       posts: data?.blog?.posts?.nodes,
     },
-    unstable_revalidate: 30,
+    revalidate: 30,
   }
 }

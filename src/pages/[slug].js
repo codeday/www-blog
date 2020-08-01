@@ -21,7 +21,7 @@ export default function Post({ post }) {
   return (
     <Page
       slug={`/${query.slug}`}
-      title={`${post?.title} ~ CodeDay Blog` || 'CodeDay Blog'}
+      title={post?.title ? `${post.title} ~ CodeDay Blog` : 'CodeDay Blog'}
       hero={<PostHeader post={post} isFallback={isFallback} />}
     >
       <NextSeo
@@ -96,6 +96,6 @@ export async function getStaticProps({ params: { slug } }) {
     props: {
       post,
     },
-    unstable_revalidate: 120,
+    revalidate: 120,
   };
 }
