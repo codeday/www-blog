@@ -10,6 +10,7 @@ import Footer, { CustomLinks } from '@codeday/topo/Organism/Footer';
 import List, { Item as ListItem } from '@codeday/topo/Atom/List';
 import Announcement from '@codeday/topo/Organism/Announcement';
 import { CodeDay } from '@codeday/topo/Atom/Logo';
+import UiArrowRight from '@codeday/topocons/Icon/UiArrowRight';
 import Sidebar from './Sidebar';
 
 const DOMAIN = 'https://blog.codeday.org';
@@ -45,25 +46,33 @@ export default function Page({
           zIndex={1000}
         >
           <SiteLogo>
+            <a href="https://www.codeday.org/">
+              <CodeDay withText />
+            </a>
             <a href="/">
-              <CodeDay />{' '}
               <Text
                 as="span"
                 d="inline"
                 letterSpacing="-2px"
                 fontFamily="heading"
-                bold
                 position="relative"
                 top={1}
+                ml={1}
+                bold
               >
-                CodeDay Blog
+                Blog
               </Text>
             </a>
           </SiteLogo>
           <Menu d={{ base: 'none', md: 'block' }}>
-            <Button variant="outline" href="https://www.codeday.org" rel="noopener">CodeDay</Button>
-            <Button variant="outline" href="https://labs.codeday.org" rel="noopener">CodeDay Labs</Button>
-            <Button variant="outline" href="https://virtual.codeday.org" rel="noopener">Virtual CodeDay</Button>
+            <Button
+              variantColor="red"
+              as="a"
+              href="https://www.codeday.org"
+              rel="noopener"
+            >
+              Main Site &nbsp;<UiArrowRight style={{ position: 'relative', top: '-1px', fill: 'currentColor' }} />
+            </Button>
           </Menu>
         </Header>
         {hero}
