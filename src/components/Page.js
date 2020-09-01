@@ -6,6 +6,7 @@ import Content from '@codeday/topo/Molecule/Content';
 import Text, { Link } from '@codeday/topo/Atom/Text';
 import Button from '@codeday/topo/Atom/Button';
 import Header, { SiteLogo, Menu } from '@codeday/topo/Organism/Header';
+import Main from '@codeday/topo/Organism/Main';
 import Footer, { CustomLinks } from '@codeday/topo/Organism/Footer';
 import List, { Item as ListItem } from '@codeday/topo/Atom/List';
 import Announcement from '@codeday/topo/Organism/Announcement';
@@ -75,17 +76,19 @@ export default function Page({
             </Button>
           </Menu>
         </Header>
-        {hero}
-        <Content mb={16}>
-          <Grid templateColumns={{ base: '1fr', md: 'minmax(0, 9fr) 4fr' }} gap={24}>
-            <Box>
-              {children}
-            </Box>
-            <Box d={{ base: 'none', md: 'block' }}>
-              <Sidebar />
-            </Box>
-          </Grid>
-        </Content>
+        <Main>
+          {hero}
+          <Content mb={16}>
+            <Grid templateColumns={{ base: '1fr', md: 'minmax(0, 9fr) 4fr' }} gap={24}>
+              <Box>
+                {children}
+              </Box>
+              <Box d={{ base: 'none', md: 'block' }}>
+                <Sidebar />
+              </Box>
+            </Grid>
+          </Content>
+        </Main>
         <Footer>
           <CustomLinks>
             <List>
