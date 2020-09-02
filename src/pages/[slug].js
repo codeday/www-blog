@@ -62,7 +62,7 @@ const postQuery = (id) => `{
       }
       author {
         name
-        picture
+        picture(transform: {width: 24, height: 24, fit: FILL})
         username
         title
       }

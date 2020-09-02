@@ -49,7 +49,7 @@ export default function PostHeader({ isFallback, post }) {
               <Image
                 d="inline"
                 rounded="full"
-                src={post?.author?.picture.replace('256x256', 'w=16;h=16')}
+                src={post?.author?.picture}
                 w="1em"
                 h="1em"
                 mr={1}
@@ -63,8 +63,10 @@ export default function PostHeader({ isFallback, post }) {
                 fontWeight="bold"
                 href={`mailto:${post?.author?.username}@codeday.org`}
               >
-                {post?.author?.name}
-              </Link>, {post?.author?.title || 'Community Member'}
+                {post?.author?.name}{
+
+              }</Link>,{' '}
+              {post?.author?.title || 'Community Member'}
             </>
           )}
         </Box>
