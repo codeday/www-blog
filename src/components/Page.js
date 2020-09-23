@@ -59,6 +59,7 @@ export default function Page({
                 position="relative"
                 top={1}
                 ml={1}
+                textDecoration="underline"
                 bold
               >
                 Blog
