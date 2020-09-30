@@ -6,6 +6,7 @@ import { apiFetch } from '@codeday/topo/utils';
 import Announcement from '@codeday/topo/Organism/Announcement';
 import { NextSeo } from 'next-seo'
 import moment from 'moment';
+import { DiscussionEmbed } from 'disqus-react';
 import Page from '../components/Page';
 import SkellyPara from '../components/SkellyPara';
 import NotFoundPage from '../components/NotFoundPage';
@@ -44,6 +45,17 @@ export default function Post({ post }) {
             post volunteer and mentor opportunities.
           </Text>
           <Announcement box mt={16} />
+          <DiscussionEmbed
+              shortname='codeday'
+              config={
+                  {
+                      url: `https://blog.codeday.org/${query.slug}`,
+                      identifier: query.slug,
+                      title: post.title,
+                      language: 'en_US',
+                  }
+              }
+          />
         </>
       ) : [...Array(Math.ceil(Math.random() * 5) + 3)].map(() => <SkellyPara />)}
     </Page>

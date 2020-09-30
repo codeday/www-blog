@@ -1,4 +1,5 @@
 import React from 'react';
+import { AllHtmlEntities as entities } from 'html-entities';
 import Text, { Heading, Link } from '@codeday/topo/Atom/Text';
 import Image from '@codeday/topo/Atom/Image';
 import Box, { Grid } from '@codeday/topo/Atom/Box';
@@ -19,7 +20,7 @@ export default function Home({ posts }) {
                 style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
               />
               <Box>
-                <Heading as="h3" fontSize="xl">{post.title}</Heading>
+                <Heading as="h3" fontSize="xl">{entities.decode(post.title)}</Heading>
                 <Box dangerouslySetInnerHTML={{ __html: post.excerpt }} />
               </Box>
             </Grid>

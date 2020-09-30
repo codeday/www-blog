@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { AllHtmlEntities as entities } from 'html-entities';
 import Skelly from '@codeday/topo/Atom/Skelly';
 import Text, { Heading, Link } from '@codeday/topo/Atom/Text';
 import Box from '@codeday/topo/Atom/Box';
@@ -41,7 +42,7 @@ export default function PostHeader({ isFallback, post }) {
           fontFamily="accent"
           mt={-2}
         >
-          { isFallback ? <><Skelly /><Skelly /></> : post.title }
+          { isFallback ? <><Skelly /><Skelly /></> : entities.decode(post.title) }
         </Heading>
         <Box mb={8} mt={4}>
           {isFallback ? (<Skelly width="sm" />) : (
