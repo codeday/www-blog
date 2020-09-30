@@ -6,6 +6,7 @@ import { apiFetch } from '@codeday/topo/utils';
 import Announcement from '@codeday/topo/Organism/Announcement';
 import { NextSeo } from 'next-seo'
 import moment from 'moment';
+import { AllHtmlEntities as entities } from 'html-entities';
 import { DiscussionEmbed } from 'disqus-react';
 import Page from '../components/Page';
 import SkellyPara from '../components/SkellyPara';
@@ -22,7 +23,7 @@ export default function Post({ post }) {
   return (
     <Page
       slug={`/${query.slug}`}
-      title={post?.title ? `${post.title} ~ CodeDay Blog` : 'CodeDay Blog'}
+      title={post?.title ? `${entities.decode(post.title)} ~ CodeDay Blog` : 'CodeDay Blog'}
       hero={<PostHeader post={post} isFallback={isFallback} />}
     >
       <NextSeo
@@ -51,7 +52,7 @@ export default function Post({ post }) {
                   {
                       url: `https://blog.codeday.org/${query.slug}`,
                       identifier: query.slug,
-                      title: post.title,
+                      title: entities.decode(post.title),
                       language: 'en_US',
                   }
               }
