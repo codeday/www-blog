@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DefaultSeo } from 'next-seo';
+import Head from 'next/head';
 import Box, { Grid } from '@codeday/topo/Atom/Box';
 import Content from '@codeday/topo/Molecule/Content';
 import Text, { Link } from '@codeday/topo/Atom/Text';
@@ -21,6 +22,9 @@ export default function Page({
 }) {
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <DefaultSeo
         title={title}
         description="Tech and education insights from the CodeDay team."
