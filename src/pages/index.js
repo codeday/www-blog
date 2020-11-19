@@ -6,10 +6,10 @@ import Box, { Grid } from '@codeday/topo/Atom/Box';
 import { apiFetch } from '@codeday/topo/utils';
 import Page from '../components/Page';
 
-export default function Home({ posts }) {
+export default function Home({ posts, pageInfo }) {
   return (
     <Page slug="/" title="CodeDay Blog">
-        {posts.map((post) => (
+        {posts?.map((post) => (
           <Link key={post.slug} d="block" href={`/${post.slug}`} style={{ textDecoration: 'none' }} mb={16}>
             <Grid templateColumns={{ base: "1fr", md: "1fr 4fr" }} gap={4}>
               <Box
@@ -26,13 +26,20 @@ export default function Home({ posts }) {
             </Grid>
           </Link>
         ))}
+        {pageInfo.hasNextPage && (
+          <Link href={`/after/${pageInfo.endCursor}`}>Next Page</Link>
+        )}
     </Page>
   );
 }
 
-const query = `{
+export const query = (after) => `{
   blog {
-    posts {
+    posts (first: 10 ${after ? `,after: "${after.replace('"', '')}"` : ''}) {
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
       nodes {
         title
         excerpt
@@ -47,10 +54,11 @@ const query = `{
 }`;
 
 export async function getStaticProps() {
-  const data = await apiFetch(query);
+  const data = await apiFetch(query());
   return {
     props: {
       posts: data?.blog?.posts?.nodes,
+      pageInfo: data?.blog?.posts?.pageInfo
     },
     revalidate: 30,
   }
