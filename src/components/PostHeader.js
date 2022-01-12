@@ -13,7 +13,7 @@ export default function PostHeader({ isFallback, post }) {
   return (
     <>
     {isFallback && (<Content wide><Skelly height={{ base: "2xs", sm: "xs", md: "sm", lg: "lg" }} /></Content>)}
-    {post?.featuredImage && (
+    {post?.featuredImage?.node && (
       <Content wide>
         <Box
           height={{ base: "2xs", sm: "xs", md: "sm", lg: "lg"}}
@@ -21,7 +21,7 @@ export default function PostHeader({ isFallback, post }) {
           mb={4}
           borderRadius={4}
           backgroundColor="gray.100"
-          backgroundImage={`url(${post.featuredImage.sourceUrl})`}
+          backgroundImage={`url(${post.featuredImage.node.sourceUrl})`}
           style={{ backgroundSize: 'cover', backgroundPosition: '50% 50%' }}
          />
       </Content>

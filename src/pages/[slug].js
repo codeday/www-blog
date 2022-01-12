@@ -30,7 +30,7 @@ export default function Post({ post }) {
         openGraph={{
           images: [
             {
-              url: post?.featuredImage?.sourceUrl,
+              url: post?.featuredImage?.node?.sourceUrl,
             }
           ]
         }}
@@ -58,8 +58,10 @@ const postQuery = (id) => `{
       content
       date
       featuredImage {
-        sourceUrl(size:LARGE)
-        srcSet
+        node {
+          sourceUrl(size:LARGE)
+          srcSet
+        }
       }
       author {
         name

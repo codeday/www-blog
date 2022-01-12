@@ -16,7 +16,7 @@ export default function Home({ posts, pageInfo }) {
                 width={{ base: 32, md: "100%" }}
                 height={32}
                 backgroundColor="gray.100"
-                backgroundImage={`url(${post.featuredImage?.sourceUrl})`}
+                backgroundImage={`url(${post.featuredImage?.node?.sourceUrl})`}
                 style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
               />
               <Box>
@@ -46,7 +46,9 @@ export const query = (after) => `{
         slug
         date
         featuredImage {
-          sourceUrl(size: THUMBNAIL)
+          node {
+            sourceUrl(size: THUMBNAIL)
+          }
         }
       }
     }
