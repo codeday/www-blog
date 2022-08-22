@@ -33,9 +33,9 @@ export default function Home({ posts, pageInfo }) {
   );
 }
 
-export const query = `query BlogPosts ($after: String, $where: BlogRootQueryToPostConnectionWhereArgs) {
+export const query = `query BlogPosts ($after: String, $tag: String) {
   blog {
-    posts (first: 10, after: $after, where: $where) {
+    posts (first: 10, after: $after, where: {tag: $tag}) {
       pageInfo {
         endCursor
         hasNextPage
@@ -57,6 +57,7 @@ export const query = `query BlogPosts ($after: String, $where: BlogRootQueryToPo
 
 export async function getStaticProps() {
   const data = await apiFetch(query);
+  console.log('2')
   return {
     props: {
       posts: data?.blog?.posts?.nodes,

@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { after, tag } }) {
-  const data = await apiFetch(query, { after, where: { tag } });
+  const data = await apiFetch(query, { after, tag });
   return {
     props: {
       posts: data?.blog?.posts?.nodes,
